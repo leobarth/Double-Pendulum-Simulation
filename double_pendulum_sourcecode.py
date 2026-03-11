@@ -167,5 +167,3 @@ def interface(): # Tkinter mainloop
     root.mainloop()
 
 interface() # starting the interface mainloop
-
-# When running the simulation, it has a little bit of latency, at least on my PC. This can, for the most part, be attributed to matplotlib's overhead in drawing. In an effort to reduce this latency, I have implemented blitting in the FuncAnimation function, and am reducing the amount of points being plotted for the traces, as well as downsampling the drawn steps in accordance to python's real-time clock. When saving the simulation as a video (either mp4- or GIF-formatted), it seemed to have no serious measurable latency.
