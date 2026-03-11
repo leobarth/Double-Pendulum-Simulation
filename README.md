@@ -101,10 +101,6 @@ The simulation solves the Lagrangian-derived equations of motion for a coupled p
 - **MP4**: High-quality video export (requires FFmpeg)
 - **GIF**: Animated GIF format with configurable frame rate
 
-## License
-
-[Add your license information here]
-
 ## Author
 
 Leo Barth
