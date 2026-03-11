@@ -131,12 +131,14 @@ def interface(): # Tkinter mainloop
     settings = ttk.LabelFrame(root, padding=10, text="Settings")
     settings.pack(fill=tk.X)
     
-    def create_labeled_slider(parent, label_text, from_val, to_val, start_val):
+    def create_labeled_slider(parent, label_text, from_val, to_val, start_val, round_to=1):
         labelframe = ttk.LabelFrame(parent, text=label_text)
         labelframe.pack(side=tk.TOP, fill=tk.X, pady=2, expand=False)
         var = tk.DoubleVar(value=start_val)
         slider = ttk.LabeledScale(labelframe, from_=from_val, to=to_val, variable=var)
-        slider.scale.configure(command=lambda value: slider.label.configure(text=round(float(value), 1)))
+        slider.scale.configure(command=lambda value: slider.label.configure(text=round(float(value), round_to)))
+        if round_to == 0:
+            slider.scale.configure(command=lambda value: slider.label.configure(text=int(float(value))))
         var.set(start_val)
         slider.pack(padx=7, pady=0, fill=tk.X, expand=False)
         return slider
@@ -145,8 +147,8 @@ def interface(): # Tkinter mainloop
     l1_slider = create_labeled_slider(settings, "Length 1 (m)", 0.1, 3, 1)
     l2_slider = create_labeled_slider(settings, "Length 2 (m)", 0.1, 3, 1)
     g_slider  = create_labeled_slider(settings, "Gravitational Acceleration (m*s^-2)", 0.5, 20, 9.8)
-    t1_slider = create_labeled_slider(settings, "Initial Angle 1 (deg)", 0, 360, 0)
-    t2_slider = create_labeled_slider(settings, "Initial Angle 2 (deg)", 0, 360, 0)
+    t1_slider = create_labeled_slider(settings, "Initial Angle 1 (deg)", 0, 360, 0, round_to=0)
+    t2_slider = create_labeled_slider(settings, "Initial Angle 2 (deg)", 0, 360, 0, round_to=0)
     
     # button logic with helper function
     button_simulate = ttk.Button(settings, text="Simulate", command=lambda: animation(find_solution(15, 0.01, t1_slider.value/180*np.pi, t2_slider.value/180*np.pi, l1_slider.value, l2_slider.value, m1_slider.value, m2_slider.value, g_slider.value, 10**(-10))))
