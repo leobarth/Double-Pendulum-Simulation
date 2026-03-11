@@ -73,7 +73,8 @@ This launches the interactive GUI where you can:
 
 ### Example: Chaotic Motion
 
-Set initial angles to non-zero values (e.g., θ₁ = 45°, θ₂ = 45°) to observe chaotic behavior in the phase space diagram.
+Set initial angles to non-zero values (e.g., θ₁ = 90°, θ₂ = 45°) to observe chaotic behavior in the phase space diagram.
+![pendel12](https://github.com/user-attachments/assets/a6d2ad67-5b53-4fba-ae60-504314b37148)
 
 ## Performance Considerations
 
