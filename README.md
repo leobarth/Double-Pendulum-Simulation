@@ -81,7 +81,7 @@ Set initial angles to non-zero values (e.g., θ₁ = 90°, θ₂ = 45°) to obse
 - The simulation includes matplotlib overhead; some latency is expected on initial render
 - Frame rate is capped at 24 FPS for performance optimization
 - Motion traces are limited to 3 seconds for real-time responsiveness
-- Video export may require several moments depending on simulation length and system specifications
+- Video export may require several moments depending on system specifications
 
 ## File Structure
 
@@ -89,7 +89,7 @@ Set initial angles to non-zero values (e.g., θ₁ = 90°, θ₂ = 45°) to obse
 
 ## How It Works
 
-1. **Physics Integration**: The `find_solution()` function computes the system trajectory using high-precision numerical integration
+1. **Physics Integration**: The `find_solution()` function computes the system trajectory using high-precision numerical integration from numpy's `solve_ivp()` function
 2. **Animation Core**: The `animation()` function manages both live playback and video export with synchronized spatial and phase space visualization
 3. **GUI Interface**: The `interface()` function provides an intuitive control panel for all simulation parameters
 
@@ -100,7 +100,7 @@ The simulation solves the Lagrangian-derived equations of motion for a coupled p
 ## Export Formats
 
 - **MP4**: High-quality video export (requires FFmpeg)
-- **GIF**: Animated GIF format with configurable frame rate
+- **GIF**: Animated GIF format
 
 ## Author
 
