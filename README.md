@@ -56,7 +56,7 @@ pip install -r requirements.txt
 ### Running the Application
 
 ```bash
-python double_pendulum_sourcecode.py
+python main.py
 ```
 
 This launches the interactive GUI where you can:
