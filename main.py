@@ -28,8 +28,22 @@ def animation(sol, filename=None, root=None):
     
     # static properties of the plots
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 5), dpi=100)
-    ax1.set_xlabel("x"), ax1.set_ylabel("y"), ax1.set_aspect("equal"), ax1.set_xlim(-plot_max, plot_max), ax1.set_ylim(-plot_max, plot_max), ax1.set_title("Simulation")
-    ax2.set_xlabel("theta1"), ax2.set_ylabel("theta2"), ax2.set_aspect("equal"), ax2.set_xlim(-np.pi, np.pi), ax2.set_ylim(-np.pi, np.pi), ax2.set_xticks([-np.pi, -np.pi/2, 0, np.pi/2, np.pi]), ax2.set_yticks([-np.pi, -np.pi/2, 0, np.pi/2, np.pi]), ax2.set_xticklabels([r"$-\pi$", r"$-\pi/2$", "0", r"$\pi/2$", r"$\pi$"]), ax2.set_yticklabels([r"$-\pi$", r"$-\pi/2$", "0", r"$\pi/2$", r"$\pi$"]), ax2.set_title("Angular Phase Space")
+    ax1.set_xlabel("x")
+    ax1.set_ylabel("y")
+    ax1.set_aspect("equal")
+    ax1.set_xlim(-plot_max, plot_max)
+    ax1.set_ylim(-plot_max, plot_max)
+    ax1.set_title("Simulation")
+    ax2.set_xlabel("theta1")
+    ax2.set_ylabel("theta2")
+    ax2.set_aspect("equal")
+    ax2.set_xlim(-np.pi, np.pi)
+    ax2.set_ylim(-np.pi, np.pi)
+    ax2.set_xticks([-np.pi, -np.pi/2, 0, np.pi/2, np.pi])
+    ax2.set_yticks([-np.pi, -np.pi/2, 0, np.pi/2, np.pi])
+    ax2.set_xticklabels([r"$-\pi$", r"$-\pi/2$", "0", r"$\pi/2$", r"$\pi$"])
+    ax2.set_yticklabels([r"$-\pi$", r"$-\pi/2$", "0", r"$\pi/2$", r"$\pi$"])
+    ax2.set_title("Angular Phase Space")
     ax1.plot(0, 0, c="black", marker="o", markersize=3, zorder=2)
     
     # dynamic / animated properties
@@ -71,6 +85,7 @@ def animation(sol, filename=None, root=None):
         popup.geometry("310x50")
         ttk.Label(popup, text="This may take a few moments...\nPlease note: Main window out of order until finished.").pack()
         popup.grab_set()
+        assert root is not None
         root.update() # force the popup to be drawn before rendering the video file
         video_duration = solution.t[-1]
         total_frames = int(video_duration*target_fps)
