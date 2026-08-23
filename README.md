@@ -85,7 +85,7 @@ Set initial angles to non-zero values (e.g., θ₁ = 90°, θ₂ = 45°) to obse
 
 ## File Structure
 
-- `double_pendulum_sourcecode.py` - Main application with GUI, physics engine, and visualization
+- `main.py` - Main application with GUI, physics engine, and visualization
 
 ## How It Works
 
